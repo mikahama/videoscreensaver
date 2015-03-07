@@ -1,6 +1,6 @@
 import os
 
-import pygtk, gst, gobject
+import pygtk
 
 import gtk as Gtk
 import gtk.gdk as Gdk
@@ -12,36 +12,6 @@ def is_screensaver_mode():
 class GsThemeWindow(Gtk.Window):
     __gtype_name__ = 'GsThemeWindow'
 
-    def set_video(self):
-        self.connect('destroy', self.on_destroy)
-
-        self.playbin = gst.element_factory_make('playbin2')
-        self.playbin.set_property('uri', '/home/mika/small.ogv')
-
-        self.sink = gst.element_factory_make('xvimagesink')
-        self.sink.set_property('force-aspect-ratio', True)
-
-        self.playbin.set_property('video-sink', self.sink)
-
-        self.bus = self.playbin.get_bus()
-        self.bus.add_signal_watch()
-        self.bus.connect("message::eos", self.on_finish)
-
-        self.playbin.set_state(gst.STATE_PLAYING)
-
-        self.drawingarea = Gtk.DrawingArea()
-        self.drawingarea.connect('realize', self.on_drawingarea_realized)
-        self.add(self.drawingarea)
-
-    def on_finish(self, bus, message):
-        self.playbin.set_state(gst.STATE_PAUSED)
-
-    def on_destroy(self, window):
-        self.playbin.set_state(gst.STATE_NULL)
-        gtk.main_quit()
-
-    def on_drawingarea_realized(self, sender):
-        self.sink.set_xwindow_id(self.drawingarea.window.xid)
 
     def do_realize(self):
         anid = self.get_anid()
@@ -75,20 +45,18 @@ class GsThemeWindow(Gtk.Window):
 if __name__ == "__main__":
     window = GsThemeWindow()
     
-    window.set_video()
-    
     window.show()
 
     
 
-    #image = Gtk.Image()
-    #image.show()
-    #window.add(image)
-    #image_file = '/home/mika/Escritorio/6862638-chris-evans.jpg'
-    #pixbuf = Gdk.pixbuf_new_from_file(image_file)
-    #pixbuf = pixbuf.scale_simple(window.w, window.h, Gdk.INTERP_BILINEAR)
+    image = Gtk.Image()
+    image.show()
+    window.add(image)
+    image_file = '/home/mika/Escritorio/6862638-chris-evans.jpg'
+    pixbuf = Gdk.pixbuf_new_from_file(image_file)
+    pixbuf = pixbuf.scale_simple(window.w, window.h, Gdk.INTERP_BILINEAR)
 
-    #image.set_from_pixbuf(pixbuf)
+    image.set_from_pixbuf(pixbuf)
 
     window.show_all()
 
