@@ -50,10 +50,13 @@ if __name__ == "__main__":
     
     window.show()
 
-    
+    video = "file:///home/mika/Eric_Saade_-_Popular_Eurovision_Song_Contest_2011_Sweden.mp4"
+    html = "<!DOCTYPE html><html><head><title>Video</title><style>body, html {    margin: 0px;    height: 100%;    width: 100%;    background-color: black;}video {    height: 100%;    width: 100%;    margin: 0px;} </style><script>function setUp(){var video = document.getElementById(\"player\");video.muted = true;video.loop = true;video.play();}</script></head><body onload=\"setUp()\"><video id=\"player\">  <source src=\""+video +"\" type=\"video/mp4\">Your browser does not support the video tag.</video></body></html>"
 
     web_view = webkit.WebView()
-    web_view.open("http://google.com")
+    web_view.set_size_request(window.w, window.h)
+    web_view.load_html_string(html, 'file:///')
+    web_view.props.settings.props.enable_default_context_menu = False
     window.add(web_view)
 
     window.show_all()

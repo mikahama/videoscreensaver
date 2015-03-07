@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Video</title>
+		<style>
+body, html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+video {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+} 
+</style>
+	<script>
+	function setUp(){
+		var video = document.getElementById("player");
+		video.muted = true;
+		video.loop = true;
+		video.play();
+	}
+</script>
+
+	</head>
+
+	<body onload="setUp()">
+		<video id="player">
+  		<source src="file:///home/mika/Eric_Saade_-_Popular_Eurovision_Song_Contest_2011_Sweden.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+	</body>
+
+</html>
