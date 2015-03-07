@@ -5,6 +5,9 @@ import pygtk
 import gtk as Gtk
 import gtk.gdk as Gdk
 
+import webkit
+import gobject
+
 def is_screensaver_mode():
     return GsThemeWindow().get_anid()
 
@@ -49,14 +52,9 @@ if __name__ == "__main__":
 
     
 
-    image = Gtk.Image()
-    image.show()
-    window.add(image)
-    image_file = '/home/mika/Escritorio/6862638-chris-evans.jpg'
-    pixbuf = Gdk.pixbuf_new_from_file(image_file)
-    pixbuf = pixbuf.scale_simple(window.w, window.h, Gdk.INTERP_BILINEAR)
-
-    image.set_from_pixbuf(pixbuf)
+    web_view = webkit.WebView()
+    web_view.open("http://google.com")
+    window.add(web_view)
 
     window.show_all()
 
