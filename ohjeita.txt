@@ -1,0 +1,5 @@
+XML- configuraatio : /usr/share/xscreensaver/config/
+.desktop : /usr/share/applications/screensavers/
+symlink videosaveriin : /usr/share/applications/screensavers/
+videosaver : /usr/bin/
+screensaver.py : /usr/share/videosaver/

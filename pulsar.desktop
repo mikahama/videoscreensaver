@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Video Screensaver
+Exec=/usr/bin/videosaver
+TryExec=/usr/bin/videosaver
+Comment=A video screensaver for xscreensaver by Mika Hämäläinen
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Screensaver;
+OnlyShowIn=GNOME;

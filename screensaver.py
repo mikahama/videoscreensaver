@@ -1,5 +1,5 @@
 import os
-
+import sys
 import pygtk
 
 import gtk as Gtk
@@ -50,8 +50,25 @@ if __name__ == "__main__":
     
     window.show()
 
-    video = "file:///home/mika/Eric_Saade_-_Popular_Eurovision_Song_Contest_2011_Sweden.mp4"
-    html = "<!DOCTYPE html><html><head><title>Video</title><style>body, html {    margin: 0px;    height: 100%;    width: 100%;    background-color: black;}video {    height: 100%;    width: 100%;    margin: 0px;} </style><script>function setUp(){var video = document.getElementById(\"player\");video.muted = true;video.loop = true;video.play();}</script></head><body onload=\"setUp()\"><video id=\"player\">  <source src=\""+video +"\" type=\"video/mp4\">Your browser does not support the video tag.</video></body></html>"
+    video = "http://www.w3schools.com/html/mov_bbb.mp4"
+    mute = "false"
+
+    next_is_file = False
+    for arg in sys.argv:
+        if arg == "-mute":
+            mute = "true"
+        elif arg == "-file":
+            next_is_file = True
+        elif next_is_file:
+            video = arg
+            next_is_file = False
+
+    if video.startswith('/'):
+        video = "file://" + video
+    elif video.startswith('www.'):
+        video = "http://" + video
+
+    html = "<!DOCTYPE html><html><head><title>Video</title><style>body, html {    margin: 0px;    height: 100%;    width: 100%;    background-color: black;}video {    height: 100%;    width: 100%;    margin: 0px;} </style><script>function setUp(){var video = document.getElementById(\"player\");video.muted = "+ mute+";video.loop = true;video.play();}</script></head><body onload=\"setUp()\"><video id=\"player\">  <source src=\""+video +"\" type=\"video/mp4\">Your browser does not support the video tag.</video></body></html>"
 
     web_view = webkit.WebView()
     web_view.set_size_request(window.w, window.h)
