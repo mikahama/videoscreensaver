@@ -1,0 +1,2 @@
+#!/bin/bash
+cat /usr/share/videosaver/xscreensaver_conf > ~/.xscreensaver

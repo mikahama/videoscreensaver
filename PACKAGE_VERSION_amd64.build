@@ -1,0 +1,6 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+parsechangelog/debian: aviso:     debian/changelog(l1): la versión «VERSION» es inválida: el número de versión no comienza con un dígito
+LINE: PACKAGE (VERSION) UNRELEASED; urgency=medium
+dpkg-buildpackage: fallo: el número de versión no comienza con un dígito
+dpkg-buildpackage: paquete fuente PACKAGE
+dpkg-buildpackage: versión de las fuentes VERSION

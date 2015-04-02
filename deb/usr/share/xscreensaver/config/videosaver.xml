@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<screensaver name="VideoSaver" _label="Video Screensaver">
+
+  <file id="file" _label="Mp4 video file:" arg="-file %"/>
+
+  <boolean id="showfps" _label="Mute" arg-set="-mute"/>
+
+
+
+  <xscreensaver-updater />
+
+  <_description>
+  	Shows an mp4 video file as a screen saver. (C) 2015 Mika Hämäläinen. www.mkhsoft.eu
+  </_description>
+</screensaver>

@@ -1,0 +1,12 @@
+Package: videosaver
+Standards-Version: 3.9.2
+Version: 1.0
+Architecture: all
+Installed-Size: 252
+Maintainer: MKH soft <support@mkhsoft.eu>
+Depends: xscreensaver, python-webkit
+Section: utils
+Priority: extra
+Homepage: http://mkhsoft.eu/
+Description: Video screensaver
+ Set an MP4 video file as your screensaver.

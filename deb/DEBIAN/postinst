@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+ln -s /usr/bin/videosaver /usr/lib/xscreensaver/videosaver
+videosaver-install

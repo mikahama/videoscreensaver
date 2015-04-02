@@ -1,0 +1,9 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc -i -b
+dpkg-buildpackage: paquete fuente videosaver
+dpkg-buildpackage: versión de las fuentes 1.0
+dpkg-buildpackage: source distribution stable
+dpkg-buildpackage: fuentes modificadas por mika <mika@mikakalevi.com>
+ dpkg-source -i --before-build deb
+dpkg-buildpackage: arquitectura del sistema amd64
+dpkg-source: fallo: se ha encontrado un error de sintaxis en deb/debian/control en la línea 12: falta un campo de fuente en el primer bloque
+dpkg-buildpackage: fallo: dpkg-source -i --before-build deb devolvió un estado de salida de error 255

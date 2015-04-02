@@ -1,5 +1,11 @@
 XML- configuraatio : /usr/share/xscreensaver/config/
 .desktop : /usr/share/applications/screensavers/
-symlink videosaveriin : /usr/share/applications/screensavers/
+symlink videosaveriin : /usr/lib/xscreensaver/
 videosaver : /usr/bin/
 screensaver.py : /usr/share/videosaver/
+
+
+dpkg-deb --build deb
+
+
+Asennuksen jälkeen: videosaver-install
